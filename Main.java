@@ -7,10 +7,32 @@ import java.util.Scanner;
 public class Main {
     public static final String SAVEFILENAME = "accounts.dat";
     public static final String SAVEDATAACC = "infoSave.dat";
+    public static final String ADMINLOGIN = "admin";
+    public static final String ADMINPASSWORD = "admin";
+
     static BankAccount[] accounts = new BankAccount[10];
+
     static Scanner scan = new Scanner(System.in);
     static boolean infoload = false;
     static boolean save = true;
+
+    private static boolean securityCheck(String operationName){
+        System.out.println("Login requaired for " + operationName);
+
+        System.out.println("Enter login: ");
+        String login = scan.next();
+
+
+        System.out.println("Enter password: ");
+         String password = scan.next();
+
+         if (login.equals(ADMINLOGIN)&& password.equals(ADMINPASSWORD)) {
+            System.out.println("Acsses !");
+            return true;
+         }
+         System.out.println("error! accesrasa");
+         return false;
+    }
 
     private static int getFreePozisin() {
         for (int i = 0; i < accounts.length; i++) {
@@ -67,6 +89,9 @@ public class Main {
         if (hasAccount == false) System.out.println("No accounts!");
     }
 
+    public static void createLoginAndPassword(){
+
+    }
 
     public static void createAccount() {
 
@@ -319,7 +344,9 @@ public class Main {
                     deleteAccount();
                     break;
                 case 3:
-                    depositToAccount();
+                    if (securityCheck("deposit")) {
+                        depositToAccount();
+                    }
                     break;
                 case 4:
                     withdrawToAccount();
