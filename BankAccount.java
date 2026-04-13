@@ -41,9 +41,9 @@ public abstract class  BankAccount implements Serializable {
 
 
     public void getAccountInfo(){
-        System.out.println("Номер аккаунта: " + accountNumber);
-        System.out.println("Владелец аккаунта: " + ownerName);
-        System.out.println("Баланс счёта: " + balance);
+        System.out.println("Account number: " + accountNumber);
+        System.out.println("Account owner: " + ownerName);
+        System.out.println("Account balance: " + balance);
     }
 
      public abstract void calculateMonthEnd();

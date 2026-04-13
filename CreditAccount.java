@@ -14,12 +14,12 @@ public class CreditAccount extends BankAccount {
 
     public void withdraw(double amount){
         if(amount <= 0){
-            System.out.println("Сумму которую вы снимаете должна быть больше нуля! ");
+            System.out.println("The amount you withdraw must be greater than zero! ");
             return;
         }
         double newBalance = getBalance() - amount;
         if (newBalance<-creditLimit){
-            System.out.println("Лимит кредита превышенна! ");
+            System.out.println("Your credit limit has been exceeded! ");
             return;
         }
         setBalance(newBalance);
